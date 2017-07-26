@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-import './voting.css';
 
-export default class Voting extends Component {
+class Vote extends Component {
     getPair () {
         return this.props.pair || [];
     }
 
     render() {
         const buttons = this.getPair().map(entry =>
-            <button key={entry}>
+            <button
+                key={entry}
+                onClick={() => this.props.vote(entry)}
+                disabled={this.props.hasVoted}>
                 <h1>{entry}</h1>
+                {
+                    this.props.hasVoted === entry ? <div className="label">Voted</div> : null
+                }
             </button>
         );
         return (
@@ -19,3 +24,5 @@ export default class Voting extends Component {
         );
     }
 }
+
+export default Vote;
