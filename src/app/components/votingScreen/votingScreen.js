@@ -4,6 +4,7 @@ import Vote from '../vote/vote';
 import './votingScreen.css';
 
 const VotingScreen = (props) => {
+    // console.log(props.pair);
     return (
         <div>
             {

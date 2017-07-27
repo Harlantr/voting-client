@@ -1,13 +1,10 @@
 import React from 'react';
 import './app.css';
-import VotingScreen from './components/votingScreen/votingScreen';
+import {List} from 'immutable';
 
 const App = (props) => {
-    const pair = ['Enema of the State', 'Dookie'];
-    return (
-        <VotingScreen pair={pair} hasVoted={pair[0]} winner={pair[1]}/>
-    );
+    const pair = List.of('Enema of the State', 'Dookie');
+    return React.cloneElement(props.children, {pair: pair});
 }
-
 
 export default App;
